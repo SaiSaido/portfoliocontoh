@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Foto</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .gallery img { width: 200px; height: auto; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Portofolio Fotografi</h1>
+    <div class="gallery" id="gallery"></div>
+    
+    <script>
+        async function loadImages() {
+            const response = await fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec');
+            const images = await response.json();
+            const gallery = document.getElementById("gallery");
+            gallery.innerHTML = images.map(url => `<img src="${url}" alt="Portfolio Image">`).join('');
+        }
+        
+        loadImages();
+    </script>
+</body>
+</html>
